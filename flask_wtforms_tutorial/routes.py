@@ -25,19 +25,23 @@ def admin():
     form = AdminLoginForm()
 
     message = None
-    if request.method == 'POST'and form.validate_on_submit():
-# admin1, 12345
-# admin2, 24680
-# admin3, 98765
-        if form.username.data == 'admin1' and form.password.data == '12345' or form.username.data == 'admin2' and form.password.data == '24680' or form.username == 'admin3' and form.password.data == '98765':
-            message = 'Printing Seating Chart...'
-            #load reservation chart
-            #load total sales
-        else:
-            message = 'Bad username/password combination. Try again.'
-   
+    reservation = None
+    sales = None
 
-    return render_template("admin.html", form=form, template="form-template", message=message)
+    username = form.username.data
+    password = form.password.data
+
+
+    if request.method == 'POST'and form.validate_on_submit():
+        with open('passcodes.txt') as file:
+            passcodes = file.read()
+            login_info = username + ", " + password
+            if login_info in passcodes:
+                message = 'Printing Seating Chart...'
+                reservation = "reservation chart here"
+                sales = "Total Sales:"       
+            else:
+                message = 'Bad username/password combination. Try again.'
 
 @app.route("/reservations", methods=['GET', 'POST'])
 def reservations():

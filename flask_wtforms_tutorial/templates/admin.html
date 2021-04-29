@@ -13,6 +13,12 @@
       {% if message %}
         <p>{{ message }}</p>
       {% endif %}
+      {% if reservation %}
+        <p>{{ reservation}}</p>
+      {% endif %}
+      {% if sales %}
+        <p>{{ sales }}</p>
+      {% endif %}
       <div class="form-field">{{ form.username.label }} {{ form.username }}
         {% if form.username.errors %}
           <ul class="errors">

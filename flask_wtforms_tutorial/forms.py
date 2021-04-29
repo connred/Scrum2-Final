@@ -67,8 +67,5 @@ class AdminLoginForm(FlaskForm):
     password = StringField('Password', [DataRequired()])
     login = SubmitField("Login")
 
-    # for line in open("passcodes.txt","r").readlines(): # Read the lines
-    #     login_info = line.split(,) # Split on the space, and store the results in a list of two strings
-    #     if username == login_info[0] and password == login_info[1]:
     
 
