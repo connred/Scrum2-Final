@@ -24,7 +24,20 @@ def admin():
 
     form = AdminLoginForm()
 
-    return render_template("admin.html", form=form, template="form-template")
+    message = None
+    if request.method == 'POST'and form.validate_on_submit():
+# admin1, 12345
+# admin2, 24680
+# admin3, 98765
+        if form.username.data == 'admin1' and form.password.data == '12345' or form.username.data == 'admin2' and form.password.data == '24680' or form.username == 'admin3' and form.password.data == '98765':
+            message = 'Printing Seating Chart...'
+            #load reservation chart
+            #load total sales
+        else:
+            message = 'Bad username/password combination. Try again.'
+   
+
+    return render_template("admin.html", form=form, template="form-template", message=message)
 
 @app.route("/reservations", methods=['GET', 'POST'])
 def reservations():

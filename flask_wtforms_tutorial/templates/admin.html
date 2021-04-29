@@ -10,6 +10,9 @@
   
   <form method="POST" action="/admin">
       {{ form.csrf_token }}
+      {% if message %}
+        <p>{{ message }}</p>
+      {% endif %}
       <div class="form-field">{{ form.username.label }} {{ form.username }}
         {% if form.username.errors %}
           <ul class="errors">
