@@ -43,6 +43,8 @@ def admin():
             else:
                 message = 'Bad username/password combination. Try again.'
 
+    return render_template("admin.html", form=form, template="form-template", message=message, reservation=reservation, sales=sales)
+
 @app.route("/reservations", methods=['GET', 'POST'])
 def reservations():
 
