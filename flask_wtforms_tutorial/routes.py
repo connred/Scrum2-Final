@@ -52,8 +52,3 @@ def reservations():
 
     return render_template("reservations.html", form=form, template="form-template")
 
-
-@app.route("/postadminlogin", methods=['GET', 'POST'])
-def postadminlogin():
-    form = PostAdminLogin()
-    return render_template("postadminlogin.html", form=form, template="form-template")
