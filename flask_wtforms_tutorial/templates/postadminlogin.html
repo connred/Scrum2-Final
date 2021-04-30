@@ -1,0 +1,20 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="formwrapper">
+  <h2 class="title">Administrator View</h2>
+  
+
+    #display admin chart with full seating data
+    #display total sales
+    <form method="POST" action="/postadminlogin">
+      {{ form.csrf_token }}
+
+      {{ form.postadmin }}
+  </form>
+</div>
+{% endblock %}
