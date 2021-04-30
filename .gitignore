@@ -1,2 +1,7 @@
 /venv/
 /.idea/misc.xml
+flask_wtforms_tutorial/__pycache__/__init__.cpython-37.pyc
+*.pyc
+*.pyc
+flask_wtforms_tutorial/__pycache__/forms.cpython-37.pyc
+flask_wtforms_tutorial/__pycache__/routes.cpython-37.pyc
