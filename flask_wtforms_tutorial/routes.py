@@ -28,7 +28,26 @@ def admin():
         #check if correct
         return redirect('/postadminlogin')
 
-    return render_template("admin.html", form=form, template="form-template")
+    message = None
+    reservation = None
+    sales = None
+
+    username = form.username.data
+    password = form.password.data
+
+
+    if request.method == 'POST'and form.validate_on_submit():
+        with open('passcodes.txt') as file:
+            passcodes = file.read()
+            login_info = username + ", " + password
+            if login_info in passcodes:
+                message = 'Printing Seating Chart...'
+                reservation = "reservation chart here"
+                sales = "Total Sales:"       
+            else:
+                message = 'Bad username/password combination. Try again.'
+
+    return render_template("admin.html", form=form, template="form-template", message=message, reservation=reservation, sales=sales)
 
 
 @app.route("/reservations", methods=['GET', 'POST'])

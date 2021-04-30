@@ -67,7 +67,5 @@ class AdminLoginForm(FlaskForm):
     password = StringField('Password', [DataRequired()])
     login = SubmitField("Login")
 
-class PostAdminLogin(FlaskForm):
-    tedst = StringField('Test', [DataRequired()])
 
 
