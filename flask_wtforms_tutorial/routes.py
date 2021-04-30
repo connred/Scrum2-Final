@@ -22,11 +22,7 @@ def user_options():
 @app.route("/admin", methods=['GET', 'POST'])
 def admin():
     form = AdminLoginForm()
-    if request.method == 'POST' and form.validate_on_submit():
-        user = request.form['username']
-        passw = request.form['password']
-        #check if correct
-        return redirect('/postadminlogin')
+
 
     message = None
     reservation = None
