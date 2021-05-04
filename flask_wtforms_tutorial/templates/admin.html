@@ -18,7 +18,13 @@
         <p>{{ message }}</p>
       {% endif %}
       {% if reservation %}
-        <p>{{ reservation}}</p>
+        <table>
+        {% for item in reservation %}
+            <tr>
+                <td>{{item}}</td>
+            </tr>
+        {% endfor %}
+        </table>
       {% endif %}
       {% if sales %}
         <p>{{ sales }}</p>
