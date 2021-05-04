@@ -60,5 +60,6 @@ def get_bus_map():  # Method to return bus seating chart from reservations.txt
 @app.route("/reservations", methods=['GET', 'POST'])
 def reservations():
     form = ReservationForm()
-
-    return render_template("reservations.html", form=form, template="form-template")
+    if request.method == 'GET':
+        reservation = get_bus_map()
+    return render_template("reservations.html", form=form, template="form-template", reservation=reservation)
