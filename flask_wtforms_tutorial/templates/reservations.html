@@ -6,9 +6,13 @@
 
 {% block content %}
 <div class="formwrapper">
-    <form method="GET" action="/">
-      <button type="submit" formmethod="GET">Home</button>
-  </form>
+    <nav>
+        <a href="/">Home</a>
+        |
+        <a href="/admin">Admin</a>
+        |
+        <a href="/reservations">Reservations</a>
+    </nav>
   <h2 class="title">Reserve Your Seat</h2>
     <!-- Area added for seating table chart. Joseph Collins -->
     {% if reservation %}
