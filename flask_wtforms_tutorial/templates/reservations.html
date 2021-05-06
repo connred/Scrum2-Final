@@ -6,11 +6,25 @@
 
 {% block content %}
 <div class="formwrapper">
-  <form method="GET" action="/">
+    <form method="GET" action="/">
       <button type="submit" formmethod="GET">Home</button>
   </form>
   <h2 class="title">Reserve Your Seat</h2>
-  
+    <!-- Area added for seating table chart. Joseph Collins -->
+    {% if reservation %}
+        <h3>Seating Chart</h3>
+        <h5>X = Reserved seat : O = Available Seat</h5>
+            <table>
+            {% for item in reservation %}
+                <tr>
+                    <td>{{item}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+    <br>
+    {% endif %}
+
+    <!-- End of added code for chart. Joseph Collins -->
   <form method="POST" action="/admin">
       {{ form.csrf_token }}
       <div class="form-field">{{ form.first_name.label }} {{ form.first_name }}
@@ -49,9 +63,9 @@
           </ul>
         {% endif %}
       </div>
-      
+
       {{ form.reserve }}
   </form>
-  
+
 </div>
 {% endblock %}
