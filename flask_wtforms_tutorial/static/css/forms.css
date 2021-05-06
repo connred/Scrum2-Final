@@ -142,3 +142,15 @@ i {
 .g-recaptcha div {
   margin: auto;
 }
+table {
+    background-color: lightgray;
+    height: 40%;
+    padding: 10px;
+    text-align: center;
+    border-radius:20px;
+}
+td {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
